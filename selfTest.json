@@ -1,0 +1,54 @@
+{ "folder" : "shop",
+  "images" : [ { "id" : "1670263",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7182.jpg"
+  },
+      { "id" : "1670262",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7194.jpg"
+      },
+      { "id" : "1670261",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7382-3.jpg"
+      },
+      { "id" : "1670260",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7202.jpg"
+      },
+      { "id" : "1670259",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7314.jpg"
+      },
+      { "id" : "1670258",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7353.jpg"
+      },
+      { "id" : "1670257",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7134.jpg"
+      },
+      { "id" : "1670256",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7376.jpg"
+      },
+      { "id" : "1670255",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7127.jpg"
+      },
+      { "id" : "1670254",
+        "url" : "http://www.themintjulepboutique.com/shop/images/D/_DSC7389.jpg"
+      }
+    ],
+  "quality" : 85,
+  "catalogID": "1234",
+  "catalogName": "rawrr",
+  "returnAddr" : "http://localhost/v1/products/images",
+  "sizes" : [ { "maxHeight" : 3000,
+        "maxWidth" : 186,
+        "name" : "thumb"
+      },
+      { "maxHeight" : 868,
+        "maxWidth" : 626,
+        "name" : "medium"
+      },
+      { "maxHeight" : 10000,
+        "maxWidth" : 650,
+        "name" : "standard"
+      },
+      { "maxHeight" : 5000,
+        "maxWidth" : 420,
+        "name" : "cropped"
+      }
+    ]
+}

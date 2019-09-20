@@ -1,0 +1,25 @@
+config.json
+logs/*
+public/images/*
+
+# Intellij
+.idea/*
+.idea
+*.iml
+*.iws
+modules.xml
+ImageOut.iml
+
+# Mac
+.DS_Store
+
+temp/processed
+
+# Node Modules
+node_modules
+
+
+#redis dump
+dump.rdb
+
+.env

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+#chkconfig: 345 99 60
+
+export HOME="/home/ec2-user"
+export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/home/ec2-user/bin"
+
+cd /home/ec2-user/imageout
+# See first cat /etc/sysconfig/iptables
+# Use iptables config instead of sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to 3010
+
+case "$1" in
+		
+	status)	
+		 ps -aux | grep "node*./usr/*."
+		;;
+	start)  
+		sudo su ec2-user -c "echo 'Attempting to start imagekue $(date)' > /var/log/imagekue/startup.log"
+		sudo su ec2-user -c " set >> /var/log/imagekue/startup.log"
+		
+		
+  		sudo su ec2-user -c '/usr/bin/killall node'
+  		service redis start
+		echo ""
+		echo "Checking Redis PING and she says $(/usr/bin/redis-cli ping)"
+		echo "If Redis did not say PONG you need to start Redis first !" 
+		echo ""
+		
+		sudo su ec2-user -c " /usr/local/bin/forever /home/ec2-user/imageout/image-app.js 2>&1 >> /var/log/imagekue/image-app.log &"
+		
+		sudo su ec2-user -c "/usr/local/bin/forever /home/ec2-user/imageout/kue-app.js 2>&1 >> /var/log/imagekue/kue-app.log &"
+		
+		echo 
+		echo "-----------------------------------------------------------------"
+		echo " Started Image Processing Services!"
+		echo
+		echo " To monitor use:  tail -f /var/log/imagekue/image-app.log"
+		echo "                  tail -f /var/log/imagekue/kue-app.log " 
+		echo "-----------------------------------------------------------------" 
+
+        ;;
+  stop)
+  		echo "Stopped imagekue on $(date)" >> /var/log/imagekue/startup.log
+        sudo su ec2-user -c 'killall node'
+        echo "ImageKue was stopped!"
+        ;;
+        
+  *)
+        echo $"Usage: $PROG {start|stop|status}"
+        exit 1
+esac
+
+exit 0
+
+
+
+
+
