@@ -8,7 +8,7 @@
     "cluster": "^0.7.7",
     "dotenv": "^8.1.0",
     "ejs": "^0.8.0",
-    "express": "^3.21.2",
+    "express": "^4.17.3",
     "follow-redirects": "^0.0.3",
     "forever": "^0.10.11",
     "imagemagick": "^0.1.3",
